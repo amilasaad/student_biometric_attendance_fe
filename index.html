@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Biometric Attendance</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+
+<body>
+  <div class="main-div">
+    <div class="left-div">
+      <h2>Look here!</h2>
+      <div class="vid-div">
+        <video class="camera" id="vid" height="347" width="396" autoplay playsinline></video>
+        <script defer src="js/face-api.min.js"></script>
+        <script defer src="js/script.js"></script>
+        <div class="modes-holder" style="display: flex; justify-items: center;">
+          <div class="" style="width: 100%;">
+            <div class="toggle-container">
+              <div class="toggle-container">
+                <p>IN</p>
+                <label class="toggle-switch">
+                  <input type="checkbox" id="mode">
+                  <span class="slider"></span>
+                </label>
+                <p>OUT</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <h2 class="f-white">Biometric Attendance</h2>
+        <div class="class-id-container">
+          <input class="class-id-field" type="text" placeholder="Your class ID"/>
+          <button class="class-id-button" onclick="verifyClass()">Confirm</button>
+        </div>
+        <p class="f-white">Facial Recognition Guidelines:<br /><br />
+          1. Face the camera directly with a neutral expression.<br />
+          2. Ensure your face is well-lit and free of shadows.<br />
+          3. Remove face coverings (hats, sunglasses, etc.).<br />
+          4. Hold still, and stand 1-2 feet from the camera.<br />
+          5. Make sure your full face is visible (forehead to chin).<br /></p>
+        <br />
+
+        <label for="cameraSelect" class="d_none">Select Camera:</label>
+        <select id="cameraSelect" class="d_none"></select>
+
+        <label for="resolution" class="d_none">Resolution:</label>
+        <select id="resolution" class="d_none">
+          <option value="640x480">640x480</option>
+          <option value="1280x720">1280x720</option>
+          <option value="1920x1080">1920x1080</option>
+        </select>
+
+        <label for="brightness" class="f-white">Brightness:</label>
+        <input type="range" id="brightness" min="0" max="200" value="100" />
+        <label for="contrast" class="f-white">Contrast:</label>
+        <input type="range" id="contrast" min="0" max="200" value="100" />
+      </div>
+    </div>
+
+
+    <hr />
+
+    <div class="right-div">
+      <div class="form-container">
+        <h2>Today's Attendance</h2>
+        <div class="grid-container">
+          <div class="grid-item">Name</div>
+          <div class="grid-item">In</div>
+          <div class="grid-item">Out</div>
+          <div class="grid-item">Class</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
